@@ -461,6 +461,8 @@ class Simulation:
         None. Sets the value of self.K.
 
         """
+        m = self.mass[0]
+        self.K = np.sum(self.p**2)/(2*m)
         
         ################################################################
         ####################### YOUR CODE GOES HERE ####################
