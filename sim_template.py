@@ -332,7 +332,17 @@ class Simulation:
         None. Sets the value of self.R.
 
         """
-        
+        for Ri in self.R:
+            for j in range(len(Ri)):
+                """ BOX FROM -L/2 to +L/2 """
+                if self.L == 0:
+                    print('ERROR L = 0')
+                    return 0
+                while Ri[j] > self.L/2:
+                    Ri[j] -= self.L
+                while Ri[j] < -self.L/2:
+                    Ri[j] += self.L
+
         ################################################################
         ####################### YOUR CODE GOES HERE ####################
         ################################################################
