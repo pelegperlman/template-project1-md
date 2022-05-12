@@ -304,6 +304,10 @@ class Simulation:
         None. Sets the value of self.p.
 
         """
+
+        ################################################################
+        ####################### YOUR CODE GOES HERE ####################
+        ################################################################  
         
         kT = BOLTZMANN*temp
         m = self.mass[0]
@@ -318,11 +322,6 @@ class Simulation:
         if removeCM:
             self.p -= np.mean(self.p,axis=0) #removes Center of Mass motion
             
-        
-        ################################################################
-        ####################### YOUR CODE GOES HERE ####################
-        ################################################################
-    
     def applyPBC( self ):
         """
         THIS FUNCTION APPLIES PERIODIC BOUNDARY CONDITIONS.
@@ -332,6 +331,10 @@ class Simulation:
         None. Sets the value of self.R.
 
         """
+        ################################################################
+        ####################### YOUR CODE GOES HERE ####################
+        ################################################################
+        
         for Ri in self.R:
             for j in range(len(Ri)):
                 """ BOX FROM -L/2 to +L/2 """
@@ -342,11 +345,7 @@ class Simulation:
                     Ri[j] -= self.L
                 while Ri[j] < -self.L/2:
                     Ri[j] += self.L
-
-        ################################################################
-        ####################### YOUR CODE GOES HERE ####################
-        ################################################################
-                    
+        
     def removeRCM( self ):
         """
         THIS FUNCTION ZEROES THE CENTERS OF MASS POSITION VECTOR.
@@ -356,12 +355,12 @@ class Simulation:
         None. Sets the value of self.R.
 
         """    
-        
-        self.R -= np.mean(self.R,axis=0)
         ################################################################
         ####################### YOUR CODE GOES HERE ####################
-        ################################################################        
-             
+        ################################################################ 
+        
+        self.R -= np.mean(self.R,axis=0)
+        
     def evalLJ( self, eps, sig ):
         """
         THIS FUNCTION EVALUTES THE LENNARD-JONES POTENTIAL AND FORCE.
