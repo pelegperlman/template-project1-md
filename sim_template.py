@@ -225,8 +225,8 @@ class Simulation:
         
         self.outfile.write( str(self.step) + " " \
                           + "{:.6e}".format(self.K) + " " \
-                          + "{:.6e}".format(self.U) + " " \
-                          + "{:.6e}".format(self.E) + "\n" )
+                          + "{:.6e}".format(self.U) + " ") 
+
                 
     def dumpXYZ( self ):
         """
