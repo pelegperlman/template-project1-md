@@ -439,12 +439,12 @@ class Simulation:
         if np.shape(self.R)[0] == 1: # 1 particle
             if np.shape(self.R)[1] == 1: # 1 dimensional
                 x = self.R[0]
-                self.U = 0
-                self.F = 0
+                self.U = 0.25*Lambda*x**4
+                self.F = -Lambda*x**3
             elif self.R[1] == 0 and self.R[2] == 0: # [5,0,0] for example also one dimensional but the vector was given as 3 dimensional
                 x = self.R[0]
-                self.U = 0
-                self.F = 0
+                self.U = 0.25*Lambda*x**4
+                self.F = -Lambda*x**3
         if( self.debug ):
             print( "Called evalAnharm with Lambda = " + str(Lambda) ) 
             
