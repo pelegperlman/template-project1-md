@@ -46,3 +46,14 @@ ANY UNITS YOU WANT IN BETWEEN, I SUGGEST USING SI UNITS.
 ################################################################
 ####################### YOUR CODE GOES HERE ####################
 ################################################################
+
+#1
+mysim = Simulation(dt=0.1E-15,L=11.3E-10,ftype="LJ")
+#2
+params = { "eps":  1.656778224E-21, "sig": 3.4E-10 }
+#3
+mysim.readXYZ("Ar_init_super.xyz") # R is in Angstrom
+mysim.R *= 1E-10 # convert from Angstrom to meters
+#4 + #5
+mysim.sampleMB() # mkT is in MKS units
+

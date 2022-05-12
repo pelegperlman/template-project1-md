@@ -401,6 +401,15 @@ class Simulation:
 
         """
         
+        m = self.m[0]
+        k = m*omega**2
+        
+        if np.shape(self.R)[1] == 1: # 1 dimensional
+            if np.shape(self.R)[0] == 1: # 1 particle
+                x = self.R[0]
+                self.U = 0.5*k*x**2
+                self.F = -k*x
+        
         if( self.debug ):
             print( "Called evalHarm with omega = " + str(omega) )
             
