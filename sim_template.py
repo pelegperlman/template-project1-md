@@ -47,6 +47,7 @@ import numpy as np
 import pandas as pd
 from scipy.constants import Boltzmann as BOLTZMANN
 import matplotlib.pyplot as plt
+import random
 
 class Simulation:
     
@@ -303,6 +304,20 @@ class Simulation:
         None. Sets the value of self.p.
 
         """
+        
+        kT = BOLTZMANN*temp
+        m = self.mass[0]
+        
+        sigma = m*kT
+        mu = 0
+        
+        for i in range(len(self.R)):        
+            p_vector = np.array([random.normalvariate(mu, sigma) for i in range(3)]) # [px,py,pz] sampled randomly from Boltzmann distribution
+            self.p[i] = p_vector # assign vector into self.p (self.p should be [ [0,0,0],[0,0,0]... [0,0,0]] after __init__)
+        
+        if removeCM:
+            self.p -= np.mean(self.p,axis=0) #removes Center of Mass motion
+            
         
         ################################################################
         ####################### YOUR CODE GOES HERE ####################
