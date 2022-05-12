@@ -409,7 +409,7 @@ class Simulation:
                 x = self.R[0]
                 self.U = 0.5*k*x**2
                 self.F = -k*x
-            elif self.R[1] == 0 & self.R[2] == 0: # [5,0,0] for example also one dimensional but the vector was given as 3 dimensional
+            elif self.R[1] == 0 and self.R[2] == 0: # [5,0,0] for example also one dimensional but the vector was given as 3 dimensional
                 x = self.R[0]
                 self.U = 0.5*k*x**2
                 self.F = -k*x
@@ -435,7 +435,16 @@ class Simulation:
         None. Sets the value of self.F and self.U.
 
         """
-    
+
+        if np.shape(self.R)[0] == 1: # 1 particle
+            if np.shape(self.R)[1] == 1: # 1 dimensional
+                x = self.R[0]
+                self.U = 0
+                self.F = 0
+            elif self.R[1] == 0 and self.R[2] == 0: # [5,0,0] for example also one dimensional but the vector was given as 3 dimensional
+                x = self.R[0]
+                self.U = 0
+                self.F = 0
         if( self.debug ):
             print( "Called evalAnharm with Lambda = " + str(Lambda) ) 
             
