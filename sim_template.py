@@ -403,9 +403,13 @@ class Simulation:
         
         m = self.m[0]
         k = m*omega**2
-        
-        if np.shape(self.R)[1] == 1: # 1 dimensional
-            if np.shape(self.R)[0] == 1: # 1 particle
+
+        if np.shape(self.R)[0] == 1: # 1 particle
+            if np.shape(self.R)[1] == 1: # 1 dimensional
+                x = self.R[0]
+                self.U = 0.5*k*x**2
+                self.F = -k*x
+            elif self.R[1] == 0 & self.R[2] == 0: # [5,0,0] for example also one dimensional but the vector was given as 3 dimensional
                 x = self.R[0]
                 self.U = 0.5*k*x**2
                 self.F = -k*x
